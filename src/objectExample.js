@@ -29,8 +29,8 @@ myCar3 = makeCar();
 /* Object creator using constructor function
     Relationship between the creator and the implementations
     A constructor function is defined by:
-    - the function name starting with a capital, like a Class, sometime
-    - the this, new and prototype keywords
+    - the function name starting with a capital, like a Class, sometimes called a pseudoclass
+    - the this and new keywords
 */
 
 var Car = function() {
@@ -44,6 +44,12 @@ var myCar4 = new Car();
 myCar4.honk();
 
 console.log(myCar4.constructor);
+
+/* In the previous examples, functions are still copied to all objects using *this*
+    resulting in a large memory overhead. That ca be eliminated by creating a prototype.
+    Objects created from the prototype will not have the function themselves, but in
+    stead point to the prototype unless overridden.
+*/
 
 var SuperCar = function() {
  SuperCar.prototype.honk = function() {
