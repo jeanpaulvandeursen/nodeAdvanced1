@@ -30,7 +30,7 @@ myCar3 = makeCar();
     Relationship between the creator and the implementations
     A constructor function is defined by:
     - the function name starting with a capital, like a Class, sometime
-    - 
+    - the this, new and prototype keywords
 */
 
 var Car = function() {
@@ -40,9 +40,27 @@ var Car = function() {
 };
 
 var myCar4 = new Car();
-var myCar5 = new Car();
 
 myCar4.honk();
 
 console.log(myCar4.constructor);
-console.log(myCar5.constructor);
+
+var SuperCar = function() {
+ SuperCar.prototype.honk = function() {
+  console.log('honk honk');
+ };
+};
+
+var myCar5 = new SuperCar();
+var myCar6 = new SuperCar();
+
+myCar5.honk();
+myCar6.honk();
+
+// Override the prototype function
+
+myCar6.honk = function() {
+    console.log('meep meep');
+};
+
+myCar6.honk();
